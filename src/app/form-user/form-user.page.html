@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastro Usuário</ion-title>
+    <ion-icon style="font-size: 25px; margin-right: 5%;" (click)="openViewUser()" name="eye" slot="end"></ion-icon>
+    <ion-icon style="font-size: 25px; margin-right: 5%;" (click)="removeUser()" name="trash" slot="end"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="logForm()" style="margin-top: 10px;" validate>
+
+    <ion-grid style="padding-top: 0px;">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label name="labelNome" position="stacked">Nome<ion-text color="danger">*
+              </ion-text>
+            </ion-label>
+            <ion-input readonly="true" placeholder="Nome" [(ngModel)]="pessoa.nome" type="text" name="nome"
+              class="unidade" style="text-transform: initial">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid style="padding-top: 0px;">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label name="labelLogin" position="stacked">Login<ion-text color="danger">*
+              </ion-text>
+            </ion-label>
+            <ion-input readonly="true" placeholder="Login" [(ngModel)]="pessoa.login" type="text" name="login"
+              class="unidade" style="text-transform: initial">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid name='gridRua'>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label name="labelRua" style="display:'';" position="stacked">Rua<ion-text color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input readonly="true" placeholder="Rua" [(ngModel)]="pessoa.rua" type="text" name="rua" class="unidade"
+              style="text-transform: initial"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid name='gridBairro'>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label name="labelBairro" style="display:'';" position="stacked">Bairro<ion-text color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input readonly="true" placeholder="Bairro" [(ngModel)]="pessoa.bairro" type="text" name="bairro"
+              class="unidade" style="text-transform: initial"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label name="labelSetor" position="stacked">Setor<ion-text color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input readonly="true" placeholder="Setor" [(ngModel)]="pessoa.setor" type="text" name="setor"
+              class="unidade" style="text-transform: initial">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label name="labelRegiao" position="stacked">Regiao<ion-text color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input readonly="true" placeholder="Regiao" [(ngModel)]="pessoa.regiao" type="text" name="regiao"
+              class="unidade" style="text-transform: initial">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label name="labelPerfil" position="stacked">Perfil<ion-text color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-select name="selectPerfil" (ionBlur)="selectPerfil($event)" interface="action-sheet"
+              placeholder="Perfil" cancelText="Cancelar">
+              <ion-select-option *ngFor="let p of ListPerfil" value="{{p}}">{{p}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div name="divBotaoCadastrar" class="ion-padding">
+      <ion-button expand="block" name="botaoCadastrar" type="submit" class="ion-no-margin" style="display: none">
+        Alterar</ion-button>
+    </div>
+  </form>
+</ion-content>

@@ -17,9 +17,19 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+      title: 'Cadastro Usuário',
+      url: '/cadastro-user',
+      icon: 'person-add'
+    },
+    {
+      title: 'Admin',
+      url: '/view-admin',
+      icon: 'build'
+    },
+    {
+      title: 'Motorista',
+      url: '/view-motorista',
+      icon: 'logo-model-s'
     }
   ];
 

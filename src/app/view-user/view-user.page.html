@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Olá, {{ pessoa.nome }}</ion-title>
+    <ion-icon style="font-size: 25px; margin-right: 5%;" (click)="refreshPage()"name="refresh" slot="end"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Coleta</ion-card-subtitle>
+      <ion-card-title>Irá ocorrer no dia {{ pessoa.data }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      O motorista tal que irá realizar a coleta é {{ pessoa.motorista }}
+    </ion-card-content>
+    <ion-button expand="block" (click)="openNextColeta()"> Próximas coletas </ion-button>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Locallização</ion-card-subtitle>
+      <ion-card-title>Você faz parte do {{ pessoa.setor }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Atualmente seu cadastro informa que a sua residência fica na {{ pessoa.rua }} - {{ pessoa.bairro }}
+    </ion-card-content>
+    <ion-button expand="block" (click)="openChangeStreet()"> Alterar </ion-button>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Admin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-label style="font-size: 18px;">Buscar / Editar Usuário</ion-label>
+      <ion-searchbar placeholder="Usuário" (ionFocus)="mostrar_list_user()" (ionInput)="getItems($event)">
+      </ion-searchbar>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list id="listUser" style="display: none;">
+        <ion-item *ngFor="let item of items" (click)="openProfile(item)">
+          {{ item }}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-item lines=none>
+        <ion-label style="font-size: 18px;">Coleta Atual</ion-label>
+        <ion-icon slot="end" name="eye" (click)="openAllCronograma()"></ion-icon>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let setor of setores">
+          <ion-label>
+            <h2>{{ setor.setor }}</h2>
+            <p>Motorista: {{ setor.motorista }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-label style="font-size: 18px;">Atuação</ion-label>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-list>
+        <ion-list-header>
+          <ion-label>Bairros ({{ (porcentagemBairro * 100).toFixed(2)}} %)</ion-label>
+        </ion-list-header>
+        <ion-progress-bar id="progressBairro" value="porcentagemBairro">
+        </ion-progress-bar>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

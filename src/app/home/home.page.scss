@@ -2,3 +2,21 @@
   max-height: 35vh;
   overflow: hidden;
 }
+
+ion-toolbar {
+  --background: rgb(113, 189, 37);
+  --color: #fff;
+}
+
+ion-input {
+  --color: rgb(113, 189, 37);
+  font: 400 15px Arial;
+}
+
+ion-label {
+  --color: rgb(60, 97, 30);
+}
+
+ion-item {
+  border-radius: 10px;
+}

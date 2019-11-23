@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Endereço</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="logForm()" style="margin-top: 10px;" validate>
+    <ion-grid name='gridCidade' style="display: '';">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label name="labelCidade" style="display:''; color: rgb(60, 97, 30);" position="stacked">Cidade<ion-text
+                color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-select nme="selectCidade" (ionChange)="selectBairro($event)" interface="action-sheet"
+              placeholder="Cidade" cancelText="Cancelar">
+              <ion-select-option *ngFor="let p of ListCidade" value="{{p}}">{{p}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid name='gridBairro' style="display: '';">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label name="labelBairro" style="display:'';" position="stacked">Bairro<ion-text color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-select interface="action-sheet" (ionChange)="selectStreet($event)" placeholder="Bairro"
+              cancelText="Cancelar">
+              <ion-select-option *ngFor="let p of ListBairro" value="{{p}}">{{p}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid name='gridRua' style="display: '';">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label name="labelRua" style="display:'';" position="stacked">Rua<ion-text color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-select interface="action-sheet" (ionChange)="releaseAdd($event)" placeholder="Rua"
+              cancelText="Cancelar">
+              <ion-select-option *ngFor="let p of ListRua" value="{{p}}">{{p}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div name="divBotaoCadastrar" class="ion-padding">
+      <ion-button expand="block" name="botaoCadastrar" type="submit" class="ion-no-margin" style="display: ''">
+        Alterar</ion-button>
+    </div>
+  </form>
+</ion-content>

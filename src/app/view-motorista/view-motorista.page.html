@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Motorista</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="logForm()" style="margin-top: 10px;" validate>
+
+    <ion-grid name='gridMotorista' style="display:  '';">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label name="labelMotorista" style="display:''; color: rgb(60, 97, 30);" position="stacked">Motorista
+              <ion-text color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-select name="selectMotorista" (ionChange)="addMotorista($event)" interface="action-sheet"
+              placeholder="Motorista" cancelText="Cancelar">
+              <ion-select-option *ngFor="let p of listMotorista" value="{{p}}">{{p}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label name="labelData" style="display:''; color: rgb(60, 97, 30);" position="stacked">Data<ion-text
+                color="danger">
+                *
+              </ion-text>
+            </ion-label>
+            <ion-input id="dateSearch" [(ngModel)]="motorista.data" name="data" type="date"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div name="divBotaoCadastrar" class="ion-padding">
+      <ion-button expand="block" name="botaoCadastrar" type="submit" class="ion-no-margin">
+        Buscar</ion-button>
+    </div>
+
+  </form>
+
+  <ion-card id='cardRua' style="display: none;">
+    <ion-card-header>{{ setor }}</ion-card-header>
+    <ion-card-content>
+      <ion-item *ngFor="let p of listBairro; let i= index">
+
+        <ion-label style="display:''; color: rgb(60, 97, 30);" (click)="openListRua(p)" position="stacked">{{ p }}
+          <ion-icon slot="end" name="arrow-dropdown"></ion-icon>
+        </ion-label>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
